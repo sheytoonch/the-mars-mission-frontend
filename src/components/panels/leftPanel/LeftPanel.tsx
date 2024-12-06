@@ -8,31 +8,18 @@ const apiUrl = process.env.BACKEND_URL;
 
 interface LeftPanelProps {
     astronauts: Astronaut[];
-    setAstronauts: React.Dispatch<React.SetStateAction<Astronaut[]>>;
     onAstronautClick: (astronaut: Astronaut) => void;
     setIsAdding: (isAdding: boolean) => void;
     setLogMessage: (message: string) => void;
+    handleDelete: (id: number) => void;
 }
 
-const LeftPanel: React.FC<LeftPanelProps> = ({ astronauts, setAstronauts, onAstronautClick, setIsAdding, setLogMessage }) => {
+const LeftPanel: React.FC<LeftPanelProps> = ({ astronauts, onAstronautClick, setIsAdding, setLogMessage, handleDelete }) => {
     const [searchQuery, setSearchQuery] = useState("");
 
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
     }
-
-    // should it be there or moved to the app.tsx if it is a globally used function?
-    const handleDelete = async (id: number) => {
-        try {
-            await fetch(`${apiUrl}/astronauts/${id}`, {
-                method: 'DELETE',
-            });
-            setAstronauts(astronauts.filter((astronaut) => astronaut.id !== id));
-            setLogMessage('Astronaut deleted');
-        } catch (error) {
-            console.error('Error deleting astronaut:', error);
-        }
-    };
 
     const handleExport = () => {
         const filteredAstronauts = astronauts.filter((astronaut) =>

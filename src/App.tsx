@@ -107,10 +107,10 @@ function App() {
       <div className="App-body">
         <LeftPanel
           astronauts={astronauts}
-          setAstronauts={setAstronauts}
           onAstronautClick={handleAstronautClick}
           setIsAdding={setIsAdding}
-          setLogMessage={setLogMessage} />
+          setLogMessage={setLogMessage}
+          handleDelete={handleDelete} />
         <MiddlePanel
           selectedAstronaut={selectedAstronaut}
           onDelete={handleDelete}
