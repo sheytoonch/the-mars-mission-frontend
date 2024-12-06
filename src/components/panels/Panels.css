@@ -1,0 +1,9 @@
+.panel {
+    margin: 10px;
+    padding: 10px;
+    height: calc(100vh - 30px);
+    background-color: var(--custom-color-8);
+    border-radius: 10px;
+    color: white;
+    box-sizing: border-box;
+}

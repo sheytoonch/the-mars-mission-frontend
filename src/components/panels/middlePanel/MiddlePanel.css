@@ -1,0 +1,39 @@
+.middle-panel {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.input-field {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    width: 20%;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.id-field {
+    color: var(--custom-color-4);
+    font-style: bold;
+}
+
+.normal-button {
+    margin: 5px;
+    border-radius: 5px;
+    min-height: 30px;
+    min-width: 30px;
+    font-style: bold;
+}

@@ -1,0 +1,26 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+}
+
+.App-header {
+  flex: 0 1 auto;
+}
+
+.App-body {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: stretch;
+  width: 1000px;
+  margin: auto;
+}

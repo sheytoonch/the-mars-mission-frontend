@@ -1,0 +1,127 @@
+.left-panel {
+    width: 30%;
+    box-sizing: border-box;
+}
+
+.search-bar {
+    width: calc(100% - 10px);
+    box-sizing: border-box;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.scroll-space {
+    overflow: scroll;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100vh - 130px);
+    border-radius: 5px;
+    margin: 5px;
+}
+
+/* SCROLL NIGHTMARE BEGING */
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+    margin-left: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* display: none; to delete the bar behind the handle */
+    margin-left: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    margin-left: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    margin-left: 5px;
+    background: #555;
+}
+
+/* SCROLL NIGHTMARE END */
+
+ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.list-element {
+    display: flex;
+    border: 2px solid var(--custom-color-1);
+    border-radius: 5px;
+    margin: 0 0 5px 0;
+}
+
+.list-element-left-side {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+    background-color: var(--custom-color-1);
+    cursor: pointer;
+    min-width: 40px;
+    border: none;
+}
+
+.list-element:hover {
+    border: 2px solid var(--custom-color-4);
+}
+
+.astronaut-id {
+    display: inline;
+}
+
+.trash-icon {
+    display: none;
+}
+
+.list-element-left-side:hover .astronaut-id {
+    display: none;
+}
+
+.list-element-left-side:hover .trash-icon {
+    display: inline;
+}
+
+.list-element-left-side:hover {
+    background-color: red;
+    color: white;
+}
+
+.list-element-right-side {
+    width: 100%;
+}
+
+.item-astronaut-role {
+    padding-bottom: 2px;
+}
+
+.list-element-right-side:hover {
+    background-color: var(--custom-color-7);
+}
+
+.astronaut-info div {
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.normal-button {
+    margin: 5px;
+    border-radius: 5px;
+    min-height: 30px;
+    min-width: 30px;
+    font-style: bold;
+}

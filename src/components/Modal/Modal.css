@@ -1,0 +1,54 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.modal.fade-out {
+    opacity: 0;
+
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 1;
+        transition: opacity 1s ease-out;
+    }
+
+    .modal.fade-out {
+        opacity: 0;
+    }
+
+    .modal-content {
+        color: white;
+        text-align: center;
+        font-size: 2em;
+        transition: opacity 0.5s ease-out;
+    }
+
+    .modal-content.fade-out-text {
+        opacity: 0;
+    }
+}
+
+.modal-content {
+    color: white;
+    text-align: center;
+    font-size: 2em;
+}
