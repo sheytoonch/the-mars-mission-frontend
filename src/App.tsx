@@ -98,6 +98,7 @@ function App() {
 
   useEffect(() => {
     getAstronauts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getAstronauts]);
 
   return (
