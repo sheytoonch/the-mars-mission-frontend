@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import LeftPanel from './components/panels/leftPanel/LeftPanel';
 import MiddlePanel from './components/panels/middlePanel/MiddlePanel';
 import RightPanel from './components/panels/rightPanel/RightPanel';
@@ -12,12 +12,13 @@ function App() {
 
   const [showModal, setShowModal] = useState(true);
   const [astronauts, setAstronauts] = useState<Astronaut[]>([]);
-  async function getAstronauts() {
+
+  const getAstronauts = useCallback(async () => {
     const res = await fetch(`${apiUrl}/astronauts`);
     const data = await res.json();
     console.log(data);
     setAstronauts(data.astronauts);
-  }
+  }, [apiUrl]);
 
   const [selectedAstronaut, setSelectedAstronaut] = useState<Astronaut | null>(null);
   const handleAstronautClick = (astronaut: Astronaut) => {
@@ -95,9 +96,9 @@ function App() {
     }, 3000);
   };
 
-  useEffect(function () {
+  useEffect(() => {
     getAstronauts();
-  }, []);
+  }, [getAstronauts]);
 
   return (
     <div className="App">
