@@ -4,8 +4,6 @@ import './LeftPanel.css';
 import '../Panels.css';
 import { Astronaut } from '../../../types';
 
-const apiUrl = process.env.BACKEND_URL;
-
 interface LeftPanelProps {
     astronauts: Astronaut[];
     onAstronautClick: (astronaut: Astronaut) => void;
