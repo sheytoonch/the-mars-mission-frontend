@@ -12,6 +12,9 @@ function App() {
 
   const [showModal, setShowModal] = useState(true);
   const [astronauts, setAstronauts] = useState<Astronaut[]>([]);
+  const [selectedAstronaut, setSelectedAstronaut] = useState<Astronaut | null>(null);
+  const [logMessage, setLogMessage] = useState('Calling Houston...');
+  const [isAdding, setIsAdding] = useState(false);
 
   const getAstronauts = useCallback(async () => {
     const res = await fetch(`${apiUrl}/astronauts`);
@@ -20,15 +23,12 @@ function App() {
     setAstronauts(data.astronauts);
   }, [apiUrl]);
 
-  const [selectedAstronaut, setSelectedAstronaut] = useState<Astronaut | null>(null);
   const handleAstronautClick = (astronaut: Astronaut) => {
     setSelectedAstronaut(astronaut);
     setIsAdding(false);
     setLogMessage(`Selected an astronaut`);
     resetLogMessage();
   };
-
-  const [logMessage, setLogMessage] = useState('Calling Houston...');
 
   const handleDelete = async (id: number) => {
     try {
@@ -67,7 +67,6 @@ function App() {
     }
   };
 
-  const [isAdding, setIsAdding] = useState(false);
   const handleAdd = async (newAstronaut: Partial<Astronaut>) => {
     try {
       const res = await fetch(`${apiUrl}/astronauts`, {
@@ -97,9 +96,14 @@ function App() {
   };
 
   useEffect(() => {
-    getAstronauts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getAstronauts]);
+    const fetchAstronauts = async () => {
+      const res = await fetch(`${apiUrl}/astronauts`);
+      const data = await res.json();
+      console.log(data);
+      setAstronauts(data.astronauts);
+    };
+    fetchAstronauts();
+  }, [apiUrl]); // Only apiUrl is needed as a dependency
 
   return (
     <div className="App">
