@@ -7,8 +7,12 @@ import Modal from './components/Modal/Modal';
 import './App.css';
 import { Astronaut } from './types';
 
-function App() {
-  const apiUrl = process.env.BACKEND_URL;
+export interface AppProps {
+  backendUrl: string;
+}
+
+function App({ backendUrl }: AppProps) {
+  const apiUrl = backendUrl;
 
   const [showModal, setShowModal] = useState(true);
   const [astronauts, setAstronauts] = useState<Astronaut[]>([]);
