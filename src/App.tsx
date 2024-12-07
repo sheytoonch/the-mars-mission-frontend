@@ -16,13 +16,6 @@ function App() {
   const [logMessage, setLogMessage] = useState('Calling Houston...');
   const [isAdding, setIsAdding] = useState(false);
 
-  const getAstronauts = useCallback(async () => {
-    const res = await fetch(`${apiUrl}/astronauts`);
-    const data = await res.json();
-    console.log(data);
-    setAstronauts(data.astronauts);
-  }, [apiUrl]);
-
   const handleAstronautClick = (astronaut: Astronaut) => {
     setSelectedAstronaut(astronaut);
     setIsAdding(false);
